@@ -1,6 +1,6 @@
 import './_globals';
 import './css/app.css';
-import { Button, Card, Paper, Stack, SxProps, Typography } from '@mui/material';
+import { Button, Paper, Stack, SxProps, Typography } from '@mui/material';
 import image from './assets/01.jpg';
 
 const btnStyles: SxProps = {
