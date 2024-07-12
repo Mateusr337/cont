@@ -1,28 +1,16 @@
-import './_globals';
-import './css/app.css';
-import { Button, Icon, Paper, Stack, SxProps, Typography } from '@mui/material';
-import image from './assets/01.jpg';
-import { AppColors, AppTheme } from './_globals';
 import {
-	Home,
+	ArrowRightSharp,
 	HomeWork,
-	WhatsApp,
-	Transform,
 	MoveToInbox,
 	StoreMallDirectory,
-	DockRounded,
-	Dock,
-	DockSharp,
-	ArchiveSharp,
+	WhatsApp,
 	WrapText,
-	Chat,
-	ArrowRightTwoTone,
-	ArrowRight,
-	ArrowRightAlt,
-	ArrowRightAltOutlined,
-	ArrowRightAltRounded,
-	ArrowRightSharp,
 } from '@material-ui/icons';
+import { Button, Paper, Stack, SxProps, Typography } from '@mui/material';
+import './_globals';
+import { AppColors, AppTheme } from './_globals';
+import image from './assets/01.jpg';
+import './css/app.css';
 
 const btnStyles: SxProps = {
 	// background: AppTheme.primary,
@@ -59,7 +47,13 @@ export default function AppComponent() {
 	// const handleCount = () => setCount(count + 1);
 
 	return (
-		<Stack direction="column" alignItems="center" gap={4}>
+		<Stack
+			direction="column"
+			alignItems="center"
+			gap={4}
+			maxWidth="100%"
+			textAlign="center"
+		>
 			{/* header page */}
 			<>
 				<Typography variant="caption">[ Logo ou nome da empresa ]</Typography>
@@ -115,6 +109,40 @@ export default function AppComponent() {
 					escritório de contabilidade que vai facilitar a sua vida e te fazer economizar.
 					A Conect oferece um serviço diferenciado que vai transformar seu negócio.
 				</Typography>
+			</>
+			{/* painel */}
+			<>
+				<Stack
+					sx={{ flexWrap: 'wrap', margin: '30px 0' }}
+					direction="row"
+					gap={1}
+					justifyContent="center"
+				>
+					<Stack direction="column" textAlign="center" width="40%">
+						<Typography variant="h3" fontWeight={700} color={AppTheme.text}>
+							+100
+						</Typography>
+						<Typography variant="body1">Especialistas</Typography>
+					</Stack>
+					<Stack direction="column" textAlign="center" width="40%">
+						<Typography variant="h3" fontWeight={700} color={AppTheme.primary}>
+							+100
+						</Typography>
+						<Typography variant="body1">Especialistas</Typography>
+					</Stack>
+					<Stack direction="column" textAlign="center" width="40%">
+						<Typography variant="h3" fontWeight={700} color={AppTheme.primary}>
+							+100
+						</Typography>
+						<Typography variant="body1">Especialistas</Typography>
+					</Stack>
+					<Stack direction="column" textAlign="center" width="40%">
+						<Typography variant="h3" fontWeight={700} color={AppTheme.text}>
+							+100
+						</Typography>
+						<Typography variant="body1">Especialistas</Typography>
+					</Stack>
+				</Stack>
 			</>
 			{/* services */}
 			<>
@@ -204,11 +232,20 @@ export default function AppComponent() {
 
 				<Button
 					color="warning"
-					sx={{ ...btnStyles }}
+					sx={{ ...btnStyles, marginTop: 10 }}
 					variant="outlined"
 					endIcon={<ArrowRightSharp />}
 				>
 					ver planos e preços
+				</Button>
+
+				<Button
+					color="warning"
+					sx={{ ...btnStyles }}
+					variant="text"
+					endIcon={<ArrowRightSharp />}
+				>
+					já tenho empresa
 				</Button>
 			</>
 			{/* footer */}
