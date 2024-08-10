@@ -5,9 +5,11 @@
   padding: 0;
   /* text-align: center; */
   justify-content: center;
-  color: #54595F
+  color: #54595F;
 }
 
 * {
   margin: 0;
+
+  box-sizing: border-box !important;
 }

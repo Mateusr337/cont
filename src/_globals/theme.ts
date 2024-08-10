@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
+
 export enum AppTheme {
-	primary = '#FD6D4B',
-	secoundary = '',
+	primary = '#b29146',
+	secoundary = '#e2e2e2',
 	background = '#E7E7E7',
 	text = '#54595F',
 }

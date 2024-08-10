@@ -11,14 +11,23 @@ import './_globals';
 import { AppColors, AppTheme } from './_globals';
 import image from './assets/01.jpg';
 import './css/app.css';
+import { AppService } from './service';
 
 const btnStyles: SxProps = {
-	// background: AppTheme.primary,
-	// color: AppTheme.text,
-	// padding: '14px',
+	color: AppTheme.secoundary,
 	borderRadius: '40px',
 	width: 'fit-content',
-	padding: '10px 20px',
+	padding: '8px 20px',
+	background: AppTheme.primary,
+	border: `1px solid ${AppTheme.secoundary}`,
+	margin: 0,
+
+	'&:hover': {
+		color: AppTheme.secoundary,
+		border: `1px solid ${AppTheme.secoundary}`,
+		background: AppTheme.primary,
+		opacity: 0.6,
+	},
 };
 
 const iconStyle /* SxProps */ = {
@@ -43,9 +52,9 @@ const wppBtnStyle: SxProps = {
 };
 
 export default function AppComponent() {
-	// const [count, setCount] = useState(0);
-
-	// const handleCount = () => setCount(count + 1);
+	const openLink = (link = AppService.linkMsgSender()) => {
+		window.open(link, '_blank');
+	};
 
 	return (
 		<>
@@ -63,7 +72,7 @@ export default function AppComponent() {
 						<Stack
 							direction="column"
 							alignItems="center"
-							gap={4}
+							gap={3}
 							maxWidth="100%"
 							textAlign="center"
 							padding={5}
@@ -71,35 +80,44 @@ export default function AppComponent() {
 							margin={0}
 							sx={{ background: AppTheme.background }}
 						>
-							<Typography variant="caption">[ Logo ou nome da empresa ]</Typography>
+							<Typography variant="caption">[ FC Contabilidade ]</Typography>
 
-							<Typography variant="h5" fontWeight={700} color={AppTheme.primary}>
+							<Typography variant="h5" fontWeight={600} color={AppTheme.primary}>
 								Contabilidade inteligente para um futuro financeiro sólido
 							</Typography>
 
 							<Typography variant="subtitle2" fontWeight={100}>
-								O melhor escritório contábil do Brasil ajudando a impulsionar o
-								crescimento da sua empresa.
+								{/* Entre os melhores escritório contábil da região ajudando a impulsionar o
+								crescimento da sua empresa. */}
+								FC Contabilidade empresa do ramo contábil com 15 anos de experiência e com
+								um time de profissionais qualificados trabalhando em parceria com nossos
+								clientes, ajudando-os na gestão e crescimento da sua empresa.
 							</Typography>
 
 							<Button
 								variant="contained"
 								color="warning"
-								sx={{ ...btnStyles, fontWeight: 100 }}
+								sx={{ ...btnStyles }}
 								endIcon={<KeyboardArrowRightOutlined />}
+								onClick={() => openLink(AppService.linkMsgSender('open_company'))}
 							>
 								Quero abrir minha empresa
 							</Button>
 
 							<Button
-								variant="outlined"
+								variant="contained"
 								sx={{
 									...btnStyles,
-									// background: '#e2e2e2',
-									color: AppColors.wpp,
+									background: AppColors.wpp,
 									border: `${AppColors.wpp} 1px solid !important`,
+
+									'&:hover': {
+										background: AppColors.wpp,
+										opacity: 0.6,
+									},
 								}}
 								endIcon={<WhatsApp />}
+								onClick={() => openLink(AppService.linkMsgSender())}
 							>
 								Junte-se à equipe!
 							</Button>
@@ -114,10 +132,11 @@ export default function AppComponent() {
 							></img>
 
 							<Button
-								variant="outlined"
+								variant="contained"
 								color="warning"
-								sx={{ ...btnStyles }}
+								sx={btnStyles}
 								endIcon={<KeyboardArrowRightOutlined />}
+								onClick={() => openLink()}
 							>
 								planos & preços
 							</Button>
@@ -150,7 +169,7 @@ export default function AppComponent() {
 						paddingInline={2}
 						margin={0}
 					>
-						<Typography variant="subtitle1" fontWeight={700}>
+						<Typography variant="h5" fontWeight={700}>
 							Conectando estratégia financeira com
 							<span style={{ color: AppTheme.primary }}> Confiabilidade</span>,
 							<span style={{ color: AppTheme.primary }}> Precisão</span> e
@@ -158,65 +177,20 @@ export default function AppComponent() {
 							para seu negócio.
 						</Typography>
 
-						<Typography variant="body1" fontWeight={100}>
-							Você vai precisar de um contador para cuidar da sua empresa. Escolha o
-							escritório de contabilidade que vai facilitar a sua vida e te fazer
-							economizar. A Conect oferece um serviço diferenciado que vai transformar seu
-							negócio.
+						<Typography variant="body1" fontWeight={100} sx={{ paddingInline: 2 }}>
+							A FC Contabilidade é uma empresa sólida e experiente, especializada em
+							fornecer serviços contábeis e de consultoria para ajudar seus clientes a
+							gerenciar e expandir seus negócios. Com 15 anos de experiência no ramo, e um
+							time de profissionais qualificados, têm os recursos e o conhecimento
+							necessários para oferecer soluções eficazes aos seus clientes. A parceria
+							com os clientes é uma abordagem inteligente, pois demonstra um compromisso
+							em entender suas necessidades específicas e ajudá-los a atingir seus
+							objetivos comerciais.
 						</Typography>
 					</Stack>
 				</>
-				{/* painel */}
-				<>
-					<Typography variant="caption">
-						[ Algum mérito ou atrativo quantitativo ]
-					</Typography>
-
-					<Stack
-						sx={{ flexWrap: 'wrap', margin: '30px 0' }}
-						direction="row"
-						gap={1}
-						justifyContent="center"
-					>
-						<Stack direction="column" textAlign="center" width="40%">
-							<Typography variant="h3" fontWeight={700} color={AppTheme.text}>
-								+100
-							</Typography>
-							<Typography variant="body1" fontWeight={100}>
-								Especialistas
-							</Typography>
-						</Stack>
-
-						<Stack direction="column" textAlign="center" width="40%">
-							<Typography variant="h3" fontWeight={700} color={AppTheme.primary}>
-								+100
-							</Typography>
-							<Typography variant="body1" fontWeight={100}>
-								Cidades
-							</Typography>
-						</Stack>
-
-						<Stack direction="column" textAlign="center" width="40%">
-							<Typography variant="h3" fontWeight={700} color={AppTheme.primary}>
-								+100
-							</Typography>
-							<Typography variant="body1" fontWeight={100}>
-								Regiões
-							</Typography>
-						</Stack>
-
-						<Stack direction="column" textAlign="center" width="40%">
-							<Typography variant="h3" fontWeight={700} color={AppTheme.text}>
-								+100
-							</Typography>
-							<Typography variant="body1" fontWeight={100}>
-								Empresas
-							</Typography>
-						</Stack>
-					</Stack>
-				</>
 				{/* services */}
-				<>
+				<Stack direction="column" gap={3} sx={{ maxWidth: '100%', padding: 1 }}>
 					<Typography
 						style={{
 							marginTop: 30,
@@ -227,7 +201,7 @@ export default function AppComponent() {
 						Serviços
 					</Typography>
 
-					<Paper sx={{ padding: 6, width: '80%' }}>
+					<Paper sx={{ padding: 6 }}>
 						<Stack direction="column" sx={{ placeItems: 'center' }}>
 							<HomeWork style={{ ...iconStyle }} />
 
@@ -241,7 +215,7 @@ export default function AppComponent() {
 						</Stack>
 					</Paper>
 
-					<Paper sx={{ padding: 6, width: '80%' }}>
+					<Paper sx={{ padding: 6 }}>
 						<Stack direction="column" sx={{ placeItems: 'center' }}>
 							<MoveToInbox style={{ ...iconStyle }} />
 
@@ -255,7 +229,7 @@ export default function AppComponent() {
 						</Stack>
 					</Paper>
 
-					<Paper sx={{ padding: 6, width: '80%' }}>
+					<Paper sx={{ padding: 6 }}>
 						<Stack direction="column" sx={{ placeItems: 'center' }}>
 							<StoreMallDirectory style={{ ...iconStyle }} />
 
@@ -269,7 +243,7 @@ export default function AppComponent() {
 						</Stack>
 					</Paper>
 
-					<Paper sx={{ padding: 6, width: '80%' }}>
+					<Paper sx={{ padding: 6 }}>
 						<Stack direction="column" sx={{ placeItems: 'center' }}>
 							<WrapText style={{ ...iconStyle }} />
 
@@ -282,33 +256,31 @@ export default function AppComponent() {
 							</Typography>
 						</Stack>
 					</Paper>
-				</>
-				{/* finaly */}
+				</Stack>
+				{/* finally */}
 				<>
-					<Typography style={{ marginTop: 30 }} color={AppTheme.text} variant="h5">
-						Venha trabalhar conosco!
-					</Typography>
-
-					<Typography variant="body1" fontWeight={100} paddingInline={2}>
-						Entre em contato para descobrir oportunidades na nossa equipe. Estamos
-						ansiosos para responder suas perguntas e discutir como você pode contribuir
-						conosco. Esperamos por você!
-					</Typography>
-
 					<Button
 						color="warning"
 						sx={{ ...btnStyles }}
 						variant="outlined"
 						endIcon={<KeyboardArrowRightOutlined />}
+						onClick={() => openLink()}
 					>
-						ver planos e preços
+						ver planos & preços
 					</Button>
 
 					<Button
 						color="warning"
-						sx={{ ...btnStyles }}
+						sx={{
+							color: AppTheme.primary,
+							'&:hover': {
+								background: 'none',
+								opacity: 0.6,
+							},
+						}}
 						variant="text"
 						endIcon={<KeyboardArrowRightOutlined />}
+						onClick={() => openLink(AppService.linkMsgSender('company'))}
 					>
 						já tenho empresa
 					</Button>
@@ -322,11 +294,11 @@ export default function AppComponent() {
 						background: AppTheme.background,
 					}}
 				>
-					<Typography variant="overline">2024 [ NOME DA EMPRESA ] </Typography>
+					<Typography variant="overline">2024 | FC Contabilidade </Typography>
 
-					<Typography variant="caption">Todos os direitos reservados</Typography>
+					<Typography variant="caption">| Todos os direitos reservados</Typography>
 					<br />
-					<Typography variant="caption">Desenvolvido por M.C. Rossetto</Typography>
+					<Typography variant="caption">Developed by M.C. Rossetto</Typography>
 				</Box>
 			</Stack>
 
