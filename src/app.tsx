@@ -303,7 +303,11 @@ export default function AppComponent() {
 			</Stack>
 
 			{/* whats app btn */}
-			<Button sx={{ ...wppBtnStyle }} variant="text">
+			<Button
+				sx={{ ...wppBtnStyle }}
+				variant="text"
+				onClick={() => AppService.linkMsgSender()}
+			>
 				<WhatsApp fontSize="large" />
 			</Button>
 		</>
