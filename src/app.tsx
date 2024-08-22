@@ -9,7 +9,8 @@ import {
 import { Box, Button, Paper, Stack, SxProps, Typography } from '@mui/material';
 import './_globals';
 import { AppColors, AppTheme } from './_globals';
-import image from './assets/01.jpg';
+import LOGO from './assets/logo.jpg';
+import VIDEO from './assets/video.mp4';
 import './css/app.css';
 import { AppService } from './service';
 
@@ -68,27 +69,26 @@ export default function AppComponent() {
 			>
 				{/* HEADER */}
 				<>
-					<Box sx={{ position: 'relative', marginBottom: 10 }}>
+					<Box sx={{ position: 'relative', marginBottom: 2 }}>
 						<Stack
 							direction="column"
 							alignItems="center"
 							gap={3}
 							maxWidth="100%"
 							textAlign="center"
-							padding={5}
+							paddingTop={2}
+							paddingBottom={5}
 							paddingInline={2}
 							margin={0}
 							sx={{ background: AppTheme.background }}
 						>
-							<Typography variant="caption">[ FC Contabilidade ]</Typography>
+							<img style={{ marginTop: 30, width: '80px' }} src={LOGO}></img>
 
 							<Typography variant="h5" fontWeight={600} color={AppTheme.primary}>
 								Contabilidade inteligente para um futuro financeiro sólido
 							</Typography>
 
 							<Typography variant="subtitle2" fontWeight={100}>
-								{/* Entre os melhores escritório contábil da região ajudando a impulsionar o
-								crescimento da sua empresa. */}
 								FC Contabilidade empresa do ramo contábil com 15 anos de experiência e com
 								um time de profissionais qualificados trabalhando em parceria com nossos
 								clientes, ajudando-os na gestão e crescimento da sua empresa.
@@ -122,14 +122,20 @@ export default function AppComponent() {
 								Junte-se à equipe!
 							</Button>
 
-							<img
+							<video
+								autoFocus
+								aria-controls="true"
+								loop
+								autoPlay={true}
+								controls
 								style={{
 									marginTop: 30,
-									width: '80%',
-									borderRadius: '35% 20px',
+									maxWidth: '80%',
+									borderRadius: '20px',
 								}}
-								src={image}
-							></img>
+							>
+								<source src={VIDEO} type="video/mp4" />
+							</video>
 
 							<Button
 								variant="contained"
@@ -303,11 +309,7 @@ export default function AppComponent() {
 			</Stack>
 
 			{/* whats app btn */}
-			<Button
-				sx={{ ...wppBtnStyle }}
-				variant="text"
-				onClick={() => AppService.linkMsgSender()}
-			>
+			<Button sx={{ ...wppBtnStyle }} variant="text" onClick={() => openLink()}>
 				<WhatsApp fontSize="large" />
 			</Button>
 		</>
