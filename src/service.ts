@@ -1,6 +1,6 @@
 export class AppService {
-	// private static phone = '555533523299';
-	private static phone = '5551995909864';
+	private static phone = '5555996579839';
+	// private static phone = '5551995909864';
 
 	private static wpp_base_url = 'https://wa.me/';
 
